@@ -1,25 +1,114 @@
+.item-card {
+  width: 300px;
+  border-radius: 10px;
+  background-color: #f8f1c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  margin: 10px;
+  border: 2px solid #d4af37;
+  font-family: 'Arial', sans-serif;
+}
+
+.item-card h3 {
+  color: #7a2c26;
+  text-align: center;
+  border-bottom: 1px solid #d4af37;
+  padding-bottom: 10px;
+}
+
+.item-card p {
+  margin: 5px 0;
+  color: #3a3a3a;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.item-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Contenedor para el layout de 2 filas y 3 columnas */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Estilos para el paginador */
 .pagination-container {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem 0;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
 }
 
-.pagination-number,
-button {
-  padding: 0.4rem 0.8rem;
-  background-color: #f0f0f0;
-  border: none;
+.pagination-container button {
+  padding: 8px 12px;
+  border: 1px solid #d4af37;
+  background-color: #2e1b00; /* Fondo oscuro similar a la carta */
+  color: #d4af37; /* Tono dorado para el texto */
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination-container button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-container button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+      45deg,
+      #d4af37,
+      #d4af37 10px,
+      #2e1b00 10px,
+      #2e1b00 20px
+  );
+  animation: swirl 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes swirl {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pagination-number {
+  padding: 8px 12px;
+  border: 1px solid #d4af37;
+  background-color: #2e1b00; /* Fondo oscuro */
+  color: #d4af37; /* Tono dorado */
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .pagination-number.active {
-  background-color: #007bff;
-  color: white;
+  background-color: #2e1b00;
+  color: #d4af37; /* Número dorado */
+  border: 2px solid #d4af37; /* Borde dorado */
+  font-weight: bold;
+  text-shadow: 0 0 5px #d4af37; /* Efecto brillante para el número */
 }
 
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.pagination-number.active::before {
+  display: none; /* Quitamos la animación en la página activa */
 }

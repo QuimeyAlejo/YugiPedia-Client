@@ -1,16 +1,16 @@
 
-const ItemCard = ({ id, name, attack, defense, stars, sacrificeRequirement, abilities, type, subType, img }) => {
+import "./itemCard.css"
+const ItemCard = ({  name,  sacrificeRequirement, abilities, type, subType, img }) => {
+
+
   return (
-    <div>
+    <div className="item-card">
       <h3>{name}</h3>
-      <p>Ataque: {attack}</p>
-      <p>Defensa: {defense}</p>
-      <p>Estrellas: {stars}</p>
-      <p>¿Requiere sacrificio?: {sacrificeRequirement}</p>
-      <p>Habilidades: {abilities}</p>
-      <p>Tipo: {type}</p>
-      <p>Subtipo: {subType}</p>
+      <p>{type} - {subType}</p>
       <img src={img} alt={name} />
+      <p>¿Requiere sacrificio?:{sacrificeRequirement}</p>
+      <p>Habilidades: {abilities}</p>
+      
     </div>
   );
 };

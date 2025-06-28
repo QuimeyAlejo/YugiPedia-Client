@@ -1,0 +1,41 @@
+.item-card {
+    width: 300px;
+    border-radius: 10px;
+    background-color: #f8f1c0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid #d4af37;
+    font-family: 'Arial', sans-serif;
+}
+
+.item-card h3 {
+    color: #7a2c26;
+    text-align: center;
+    border-bottom: 1px solid #d4af37;
+    padding-bottom: 10px;
+}
+
+.item-card p {
+    margin: 5px 0;
+    color: #3a3a3a;
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.item-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Contenedor para el layout de 2 filas y 3 columnas */
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    max-width: 960px; /* 3 * 300px + 2 * 20px (gap) */
+    margin: 0 auto;
+}

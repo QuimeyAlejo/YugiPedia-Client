@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { useCardContext } from "../../context/CardContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import "./navBar.css"
 
 const Navbar = () => {
   const [searchInput, setSearchInput] = useState("");
   const { setCards } = useCardContext();
+  const [selectedValue, setSelectedValue] = useState('Filtros');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,11 +51,22 @@ const Navbar = () => {
       setSearchInput("")
     }
   };
-
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
   return (
-    <div>
+    <div className="nav-card">
       <div>
         <button><Link to="/createCard">Crear carta</Link></button>
+        <button><Link to="/createCard">Filtro 1</Link></button>
+      </div>
+      <div>
+      <select value={selectedValue} onChange={handleChange}> 
+          <option value="Filtros">Filtrar por:</option>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
       </div>
       <div>
       <form onSubmit={handleSubmit}>
